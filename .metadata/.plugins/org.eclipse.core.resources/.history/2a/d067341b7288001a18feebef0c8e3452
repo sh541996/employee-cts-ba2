@@ -1,0 +1,25 @@
+package com.cts.ba2.controller;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RestController;
+
+import com.cts.ba2.model.Employee;
+import com.cts.ba2.service.EmployeeServiceImpl;
+
+@RestController
+public class EmployeeController {
+
+	@Autowired
+	EmployeeServiceImpl employeeService;
+	
+	@PostMapping("/addEmployee")
+	public ResponseEntity<Object>addEmployee(@RequestBody Employee employee) {
+			System.out.println(employee);
+			employeeService.addEmployee(employee);
+			return new ResponseEntity<>("Employee is added successfully", HttpStatus.CREATED);
+		}
+}

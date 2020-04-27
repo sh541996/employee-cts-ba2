@@ -1,0 +1,17 @@
+package com.cts.ba2.service;
+
+import org.springframework.beans.factory.annotation.Autowired;
+
+import com.cts.ba2.model.Employee;
+import com.cts.ba2.repository.EmployeeRepository;
+
+public class EmployeeServiceImpl {
+	
+	@Autowired
+	EmployeeRepository employeeeRepository;
+
+	public void addEmployee(Employee employee) {
+		
+		employeeeRepository.save(employee);
+	}
+}

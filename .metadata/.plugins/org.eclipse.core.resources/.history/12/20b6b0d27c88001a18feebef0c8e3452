@@ -1,0 +1,55 @@
+package com.cts.ba2.service;
+
+import java.util.List;
+import java.util.Optional;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+
+import com.cts.ba2.model.Employee;
+import com.cts.ba2.repository.EmployeeRepository;
+
+@Service
+public class EmployeeServiceImpl implements EmployeeService{
+	
+	@Autowired
+	EmployeeRepository employeeRepository;
+
+	@Override
+	public void addEmployee(Employee employee) {
+		
+		employeeRepository.save(employee);
+	}
+
+	@Override
+	public List<Employee> listOfEmployee() {
+		// TODO Auto-generated method stub
+		return employeeRepository.findAll();
+	}
+	
+	public Optional<Employee> findById(Long id) {
+		
+		return employeeRepository.findById(id);
+	}
+	
+	@Override
+	public Employee updateEmployee(Long id, Employee employee) {
+		// TODO Auto-generated method stub
+		if(employeeRepository.findById(id).isPresent()) {
+			
+			Employee existingEmployee = employeeRepository.findById(id).get();
+			existingEmployee.setEmployeeAddress(employee.getEmployeeAddress());
+			existingEmployee.setEmployeeName(employee.getEmployeeName());
+			existingEmployee.setEmployeeSallary(employee.getEmployeeSallary());
+			existingEmployee.setProjectId(employee.getProjectId());
+			
+			Employee updatedEmployee = employeeRepository.save(existingEmployee);
+			return updatedEmployee;
+		}
+		
+		else {
+			return null;
+		}
+	}
+	
+}

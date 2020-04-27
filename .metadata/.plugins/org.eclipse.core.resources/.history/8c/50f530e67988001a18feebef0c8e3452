@@ -1,0 +1,12 @@
+package com.cts.ba2.service;
+
+import java.util.List;
+
+import com.cts.ba2.model.Employee;
+
+public interface EmployeeService {
+
+	public abstract void addEmployee(Employee employee);
+
+	public abstract List<Employee> listOfEmployee();
+}
