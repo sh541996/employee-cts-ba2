@@ -20,18 +20,24 @@ public class EmployeeController {
 	@Autowired
 	EmployeeServiceImpl employeeService;
 	
+	
+	//to add employee data to the database
 	@PostMapping("/addEmployee")
 	public ResponseEntity<Object>addEmployee(@RequestBody Employee employee) {
-			System.out.println(employee);
+		
 			employeeService.addEmployee(employee);
 			return new ResponseEntity<>("Employee is added successfully", HttpStatus.CREATED);
 		}
 	
+	
+	//to get the list of employee from database
 	@GetMapping("/listOfEmployee")
 	public ResponseEntity<Object> listOfEmployee(){
 		return new ResponseEntity<>(employeeService.listOfEmployee(), HttpStatus.OK);
 	}
 	
+	
+	//to update the employee detail using its id
 	@PutMapping("/updateEmployee/{id}")
 	public ResponseEntity<Object> updateEmployee(@PathVariable("id") Long id, @RequestBody Employee employee) {
 	      
@@ -39,6 +45,8 @@ public class EmployeeController {
 	      return new ResponseEntity<>(employeeService.updateEmployee(id, employee), HttpStatus.OK);
 	 }
 	
+	
+	//to delete the employee detail using its id 
 	@DeleteMapping("/deleteEmployee/{id}")
 	public ResponseEntity<Object> deleteEmployee(@PathVariable("id") Long id) {
 	      

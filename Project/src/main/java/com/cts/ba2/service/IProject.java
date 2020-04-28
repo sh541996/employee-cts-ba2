@@ -7,14 +7,12 @@ import com.cts.ba2.model.Project;
 
 public interface IProject {
 	
-	public abstract void addProject(Project project);
+	public void addProject(Project project);
 
-	public abstract List<Project> listOfProject();
-	
-	public abstract Optional<Project> findById(Long id);
+	public List<Project> listOfProject();
 
-	public abstract String updateProject(Long id, Project project);
+	public String updateProject(Long id, Project project);
 
-	public abstract String deleteProject(Long id);
+	public String deleteProject(Long id);
 
 }

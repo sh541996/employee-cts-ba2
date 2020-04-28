@@ -20,6 +20,8 @@ public class ProjectController {
 	@Autowired
 	ProjectServiceImpl projectService;
 	
+	
+	//to add project detail
 	@PostMapping("/addProject")
 	public ResponseEntity<Object> addProject(@RequestBody Project project) {
 		
@@ -27,11 +29,16 @@ public class ProjectController {
 			return new ResponseEntity<>("Project is added successfully", HttpStatus.CREATED);
 		}
 	
+	
+	//to get list of project
 	@GetMapping("/listOfProject")
 	public ResponseEntity<Object> listOfProject(){
 		return new ResponseEntity<>(projectService.listOfProject(), HttpStatus.OK);
 	}
 	
+	
+
+	//to update project details using id
 	@PutMapping("/updateProject/{id}")
 	public ResponseEntity<Object> updateProject(@PathVariable("id") Long id, @RequestBody Project project) {
 	      
@@ -39,6 +46,8 @@ public class ProjectController {
 	      return new ResponseEntity<>(projectService.updateProject(id, project), HttpStatus.OK);
 	 }
 	
+	
+	//to delete project detail using id
 	@DeleteMapping("/deleteProject/{id}")
 	public ResponseEntity<Object> deleteProject(@PathVariable("id") Long id) {
 	      

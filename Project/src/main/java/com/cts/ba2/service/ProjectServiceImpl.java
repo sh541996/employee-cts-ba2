@@ -17,23 +17,24 @@ public class ProjectServiceImpl implements IProject{
 	@Autowired
 	ProjectRepository projectRepository;
 
+	
+	//to add project detail
 	@Override
 	public void addProject(Project project) {
 		
 		projectRepository.save(project);
 	}
 
+	
+	//to get list of project
 	@Override
 	public List<Project> listOfProject() {
 		// TODO Auto-generated method stub
 		return projectRepository.findAll();
 	}
 	
-	public Optional<Project> findById(Long id) {
-		
-		return projectRepository.findById(id);
-	}
 	
+	//to update project details using id
 	@Override
 	public String updateProject(Long id, Project project) {
 		// TODO Auto-generated method stub
@@ -53,6 +54,8 @@ public class ProjectServiceImpl implements IProject{
 		}
 	}
 	
+	
+	//to delete project detail using id
 	@Override
 	public String deleteProject(Long id) {
 		// TODO Auto-generated method stub

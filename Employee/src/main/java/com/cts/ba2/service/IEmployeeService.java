@@ -7,13 +7,11 @@ import com.cts.ba2.model.Employee;
 
 public interface IEmployeeService {
 
-	public abstract void addEmployee(Employee employee);
+	public void addEmployee(Employee employee);
 
-	public abstract List<Employee> listOfEmployee();
-	
-	public abstract Optional<Employee> findById(Long id);
+	public  List<Employee> listOfEmployee();
 
-	public abstract String updateEmployee(Long id, Employee employee);
+	public String updateEmployee(Long id, Employee employee);
 
-	public abstract String deleteEmployee(Long id);
+	public String deleteEmployee(Long id);
 }

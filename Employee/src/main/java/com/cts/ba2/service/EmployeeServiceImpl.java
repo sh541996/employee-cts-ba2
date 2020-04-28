@@ -14,24 +14,25 @@ public class EmployeeServiceImpl implements IEmployeeService{
 	
 	@Autowired
 	EmployeeRepository employeeRepository;
+	
 
+	//to add employee data to the database
 	@Override
 	public void addEmployee(Employee employee) {
 		
 		employeeRepository.save(employee);
 	}
 
+
+	//to get the list of employee from database
 	@Override
 	public List<Employee> listOfEmployee() {
 		// TODO Auto-generated method stub
 		return employeeRepository.findAll();
 	}
 	
-	public Optional<Employee> findById(Long id) {
-		
-		return employeeRepository.findById(id);
-	}
 	
+	//to update the employee detail using its id
 	@Override
 	public String updateEmployee(Long id, Employee employee) {
 		// TODO Auto-generated method stub
@@ -52,6 +53,8 @@ public class EmployeeServiceImpl implements IEmployeeService{
 		}
 	}
 	
+	
+	//to delete the employee detail using its id 
 	@Override
 	public String deleteEmployee(Long id) {
 		// TODO Auto-generated method stub
