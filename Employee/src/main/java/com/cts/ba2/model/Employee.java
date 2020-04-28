@@ -30,7 +30,6 @@ public class Employee {
 	private long projectId;
 
 
-
 }
 
 
